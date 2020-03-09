@@ -1,0 +1,43 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
+
+
+    defaultConfig {
+        applicationId "com.vigorous.shadow.manager"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+
+    implementation project(':lib-shadow')
+    implementation files('libs/common-debug.jar')
+    implementation files('libs/core-manager-debug.jar')
+
+    implementation files('libs/dynamic-manager-debug.jar')
+    implementation files('libs/dynamic-loader-debug.jar')
+
+
+
+    compileOnly files('libs/common-debug.jar')
+    compileOnly files('libs/dynamic-host-debug.jar')
+
+
+
+}

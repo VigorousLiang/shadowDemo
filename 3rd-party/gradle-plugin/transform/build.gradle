@@ -1,0 +1,19 @@
+apply plugin: 'kotlin'
+
+group 'com.tencent.shadow.core'
+
+dependencies {
+    implementation project(':3rd-party:gradle-plugin:transform-kit')
+}
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.6"
+    }
+}
+
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = "1.6"
+    }
+}

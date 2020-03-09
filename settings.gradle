@@ -1,0 +1,17 @@
+include ':app'
+include ':lib-shadow'
+include ':shadow-manager'
+include ':shadow-plugin:normal'
+include ':shadow-plugin:lib-app-support'
+include ':shadow-plugin:plugin'
+include ':shadow-plugin:loader'
+include ':shadow-plugin:runtime'
+
+include ':3rd-party:slidingmenu'
+include ':3rd-party:pinnedheaderexpandablelistview'
+
+include ':3rd-party:gradle-plugin:gradle-plugin'
+include ':3rd-party:gradle-plugin:transform'
+include ':3rd-party:gradle-plugin:transform-kit'
+
+rootProject.name='shadowDemo'

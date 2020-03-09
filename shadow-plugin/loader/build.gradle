@@ -1,0 +1,43 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
+    defaultConfig {
+        applicationId "com.vigorous.shadow"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            signingConfig signingConfigs.create("release")
+            signingConfig.initWith(buildTypes.debug.signingConfig)
+        }
+    }
+}
+
+dependencies {
+
+    implementation files("libs/core-loader-debug.jar")
+    implementation files("libs/dynamic-loader-debug.jar")
+    implementation files("libs/dynamic-loader-impl-debug.jar")
+    implementation files("libs/core-load-parameters.jar")
+
+    implementation project(':lib-shadow')
+
+    compileOnly files("libs/runtime-debug.jar")
+    compileOnly files("libs/activity-container-debug.jar")
+    compileOnly files("libs/common-debug.jar")
+    compileOnly files("libs/dynamic-host-debug.jar")
+    compileOnly project(':shadow-plugin:lib-app-support')
+}
